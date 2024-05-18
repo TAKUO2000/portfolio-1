@@ -16,7 +16,7 @@
 </head>
 <body>
     <header class="text-gray-600 body-font border-b-2">
-        <div class="container flex flex-col flex-wrap items-center p-5 mx-auto md:flex-row">
+        <div class="container flex flex-col flex-wrap items-center p-2 mx-auto pb-3 md:flex-row">
           <a class="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
             <span class="ml-3 text-2xl">注文.com</span>
           </a>
@@ -32,6 +32,15 @@
             </svg>
           </button>
         </div>
+        <div class ="border-t border-black-600 mx-4 py-2 md:ml-2 px-20">
+          <div class="container flex flex-col flex-wrap items-center md:flex-row">
+            <h1 class="text-3xl">
+            {{ $header }}
+            </h1>
+          </div>
+        </div>
+        
+
       </header>
 
     <main>

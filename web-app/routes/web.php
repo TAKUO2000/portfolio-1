@@ -26,3 +26,7 @@ Route::get('/',function(){
 Route::get('/home/order/customer',function(){
     return view('order/customer');
 });
+
+Route::get('/home/order-status/employee',function(){
+    return view('order-status/employee');
+});
