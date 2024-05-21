@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,4 @@ Route::get('/home/order/customer',function(){
     return view('order/customer');
 });
 
-Route::get('/home/order-status/employee',function(){
-    return view('order-status/employee');
-});
+Route::get('/home/order-status/employee',[OrderController::class, 'status_view']);

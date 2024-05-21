@@ -17,10 +17,6 @@ class OrdersTableSeeder extends Seeder
 
         $orders = Order::all();
 
-        foreach($orders as $order){
-            $order->delete();
-        }
-
         $orders =[
             ['order_number' => 1,'menu_number' => 1,'menu_piece' => 2],
             ['order_number' => 1,'menu_number' => 2,'menu_piece' => 2],

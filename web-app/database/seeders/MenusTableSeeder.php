@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Menu;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MenusTableSeeder extends Seeder
 {
@@ -14,10 +15,6 @@ class MenusTableSeeder extends Seeder
     public function run(): void
     {
         $menus = Menu::all();
-
-        foreach($menus as $menu){
-            $menu->delete();
-        }
 
         $menus =[
             ['menu_name' => 'butaman','price' =>300],
@@ -29,5 +26,7 @@ class MenusTableSeeder extends Seeder
         foreach($menus as $menu){
             Menu::create($menu);
         }
+
+
     }
 }

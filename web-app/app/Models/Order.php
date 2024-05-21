@@ -11,4 +11,9 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = ['order_number','menu_number','menu_piece'];
+
+    public function menu()
+    {
+        return $this->hasOne(Menu::class, 'id', 'menu_number');
+    }
 }
