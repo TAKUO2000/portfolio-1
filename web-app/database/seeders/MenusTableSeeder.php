@@ -17,7 +17,7 @@ class MenusTableSeeder extends Seeder
         $menus = Menu::all();
 
         $menus =[
-            ['menu_name' => 'butaman','price' =>300],
+            ['menu_name' => '豚まん','price' =>300],
             ['menu_name' => 'kosyou','price' =>330],
             ['menu_name' => 'chimaki','price' =>400],
             ['menu_name' => 'syuumai','price' =>500]

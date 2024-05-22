@@ -20,12 +20,18 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/',function(){
+Route::get('/home',function(){
     return view('home');
-});
+})->name('home');
 
-Route::get('/home/order/customer',function(){
+Route::get('/order/customer',function(){
     return view('order/customer');
-});
+})->name('order.customer');
 
-Route::get('/home/order-status/employee',[OrderController::class, 'status_view']);
+Route::get('/order/employee',function(){
+    return view('order/employee');
+})->name('order.employee');
+
+Route::get('/home/order-status/employee',
+    [OrderController::class, 'status_view'])
+    ->name('order_status.employee');

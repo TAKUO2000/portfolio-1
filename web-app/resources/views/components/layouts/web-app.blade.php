@@ -21,9 +21,9 @@
             <span class="ml-3 text-2xl">注文.com</span>
           </a>
           <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto">
-            <a class="mr-5 hover:text-black hover:font-bold">HOME</a>
-            <a class="mr-5 hover:text-black hover:font-bold">ABOUT</a>
-            <a class="mr-5 hover:text-black hover:font-bold">NEWS</a>
+            <a class="mr-5 hover:text-black hover:font-bold" href="{{ route('home') }}">HOME</a>
+            <a class="mr-5 hover:text-black hover:font-bold" href="{{ route('home') }}" >ABOUT</a>
+            <a class="mr-5 hover:text-black hover:font-bold" href="{{ route('home') }}">NEWS</a>
           </nav>
           <button class="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0">
             LOGIN
