@@ -39,8 +39,12 @@
                 </div>
             </div>
             <div class="flex">
-                <button class="bg-white my-1 mr-2 p-1 rounded-lg">メニュー追加</button>
-                <input class="bg-white my-1 p-1 rounded-lg" type="submit" value="送信">
+                <div>
+                <button class="bg-white my-1 mr-2 p-1 rounded-lg border-2 border-gray-400 hover:bg-gray-200" id="add_menu">メニュー追加</button>
+                </div>
+                <div>
+                <input class="bg-white my-1 p-1 rounded-lg  border-2 border-green-400 hover:bg-green-200" type="submit" value="オーダーを送信">
+                </div>
             </div>
         </form>
     </div>
