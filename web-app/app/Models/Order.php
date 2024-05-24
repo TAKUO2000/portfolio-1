@@ -9,8 +9,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Order extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['order_number','menu_number','menu_piece'];
+    
+    protected $fillable = [
+        'order_number',
+        'menu_number',
+        'menu_piece',
+    ];
 
     public function menu()
     {

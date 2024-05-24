@@ -28,9 +28,14 @@ Route::get('/order/customer',function(){
     return view('order/customer');
 })->name('order.customer');
 
-Route::get('/order/employee',function(){
-    return view('order/employee');
-})->name('order.employee');
+
+Route::get('/order/employee',
+    [OrderController::class, 'create_view'])
+    ->name('order.employee');
+
+Route::post('/order/employee',
+    [OrderController::class, 'create'])
+    ->name('order.create');
 
 Route::get('/home/order-status/employee',
     [OrderController::class, 'status_view'])

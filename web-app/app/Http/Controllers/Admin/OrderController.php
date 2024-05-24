@@ -15,15 +15,6 @@ class OrderController extends Controller
     {
         $orders=Order::all();
         $menus=Menu::all();
-        
-        // $array=[
-        //     ['order_number'=>1,
-        //     'menu_number'=>[1,2],
-        //     'menu_pice'=>[2,2]],
-        //     ['order_number'=>2,
-        //     'menu_number'=>[2],
-        //     'menu_pice'=>[2]],
-        // ];
 
         $order_array = [];
 
@@ -44,5 +35,24 @@ class OrderController extends Controller
         }
 
         return view('order-status/employee',['orders' => $orders , 'menus' => $menus ,'order_array'=>$order_array]);
+    }
+
+    public function create_view() : View
+    {
+        $menus=Menu::all();
+        return view('order/employee', ['menus' => $menus]); 
+    }
+
+    public function create(Request $request) : Order
+    {
+        $order = new Order();
+
+        $order -> order_number = $request -> order_number ;
+        $order -> menu_number = $request -> menu_id;
+        $order -> menu_piece = $request -> menu_piece;
+        
+        $order -> save();
+
+        return $order;
     }
 }
