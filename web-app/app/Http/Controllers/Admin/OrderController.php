@@ -43,16 +43,17 @@ class OrderController extends Controller
         return view('order/employee', ['menus' => $menus]);
     }
 
-    public function create(Request $request) : Order
+    public function create(Request $request) : View
     {
 
+        $orderid=$request -> order_number;
 
         foreach( $request -> menu_ids as $menu_id ){
         foreach( $request -> menu_pieces as $menu_piece ){
 
             $order = new Order();
 
-            $order -> order_number = $request -> order_number ;
+            $order -> order_number =  $orderid ;
             $order -> menu_number =  $menu_id;
             $order -> menu_piece =  $menu_piece;
 
@@ -61,6 +62,8 @@ class OrderController extends Controller
         }
         }
 
-        return $order;
+        $orders = Order::where('order_number', $orderid)->get();
+
+        return view('order/order-compleate',['orders'=> $orders, 'orderid' => $orderid]);
     }
 }
