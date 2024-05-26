@@ -40,18 +40,26 @@ class OrderController extends Controller
     public function create_view() : View
     {
         $menus=Menu::all();
-        return view('order/employee', ['menus' => $menus]); 
+        return view('order/employee', ['menus' => $menus]);
     }
 
     public function create(Request $request) : Order
     {
-        $order = new Order();
 
-        $order -> order_number = $request -> order_number ;
-        $order -> menu_number = $request -> menu_id;
-        $order -> menu_piece = $request -> menu_piece;
-        
-        $order -> save();
+
+        foreach( $request -> menu_ids as $menu_id ){
+        foreach( $request -> menu_pieces as $menu_piece ){
+
+            $order = new Order();
+
+            $order -> order_number = $request -> order_number ;
+            $order -> menu_number =  $menu_id;
+            $order -> menu_piece =  $menu_piece;
+
+            $order -> save();
+
+        }
+        }
 
         return $order;
     }
