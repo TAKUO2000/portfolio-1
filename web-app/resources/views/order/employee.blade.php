@@ -10,12 +10,9 @@
         @csrf
             <div class="my-1 py-3 rounded-lg bg-white flex">
                 <div class="w-28 m-2">
-                    <label class=" text-lg font-medium">オーダー番号</label>
+                    <label class=" text-lg font-medium">オーダー番号{{ $orderid }}</label>
                 </div>
-                <div>
-                    <input type="number" name="order_number" min="1">
-                </div>
-                </div>
+            </div>
 
             <div id = menu-container>
                 <div id = menu-item>

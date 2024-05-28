@@ -40,26 +40,26 @@ class OrderController extends Controller
     public function create_view() : View
     {
         $menus=Menu::all();
-        return view('order/employee', ['menus' => $menus]);
+        $orderid=Order::max('order_number')+1;
+
+        return view('order/employee', ['menus' => $menus , 'orderid' => $orderid]);
     }
 
     public function create(Request $request) : View
     {
-
-        $orderid=$request -> order_number;
+        $orderid=Order::max('order_number')+1;
+        $i=0;
 
         foreach( $request -> menu_ids as $menu_id ){
-        foreach( $request -> menu_pieces as $menu_piece ){
 
             $order = new Order();
 
             $order -> order_number =  $orderid ;
             $order -> menu_number =  $menu_id;
-            $order -> menu_piece =  $menu_piece;
+            $order -> menu_piece = $request -> menu_pieces[$i];
 
             $order -> save();
-
-        }
+            $i=$i++;
         }
 
         $orders = Order::where('order_number', $orderid)->get();
