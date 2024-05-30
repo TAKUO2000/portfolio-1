@@ -1,4 +1,3 @@
-
 <x-layouts.web-app>
     <x-slot:title>
         注文状況

@@ -34,9 +34,18 @@ Route::get('/order/employee',
     ->name('order.employee');
 
 Route::post('/order/employee',
-    [OrderController::class, 'create'])
+    [OrderController::class, 'order_create'])
     ->name('order.create');
 
 Route::get('/home/order-status/employee',
     [OrderController::class, 'status_view'])
     ->name('order_status.employee');
+
+Route::get('/managements/menus',
+    [OrderController::class, 'menu_management_view'])
+    ->name('mgmt.menus');
+
+Route::post('/managements/menus',
+    [OrderController::class, 'menu_create'])
+    ->name('mgmt.create');
+

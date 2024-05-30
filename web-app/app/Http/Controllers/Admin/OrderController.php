@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\Order;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -45,7 +46,9 @@ class OrderController extends Controller
         return view('order/employee', ['menus' => $menus , 'orderid' => $orderid]);
     }
 
-    public function create(Request $request) : View
+    
+
+    public function order_create(Request $request) : View
     {
         $orderid=Order::max('order_number')+1;
         $i=0;
@@ -66,4 +69,20 @@ class OrderController extends Controller
 
         return view('order/order-compleate',['orders'=> $orders, 'orderid' => $orderid]);
     }
+
+    public function menu_management_view() : View
+    {
+        $menus=Menu::all();
+        return view('managements/menus',['menus' => $menus]);
+    }
+
+    public function menu_create(Request $request):RedirectResponse
+    {
+        $menu = new Menu();
+        $menu -> menu_name = $request -> newMenu; 
+        $menu -> price = $request -> newMenuPrice;
+        $menu -> save();
+        return redirect('managements/menus');
+    }
+
 }
