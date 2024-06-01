@@ -20,6 +20,10 @@
                         {{ $order_value }}<br>
                     @endforeach
                 </h1>
+                <form action="{{ route('order.delete', $key) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="削除">
+                </form>
             </div>
         </div>
     </div>

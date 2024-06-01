@@ -41,6 +41,10 @@ Route::get('/home/order-status/employee',
     [OrderController::class, 'status_view'])
     ->name('order_status.employee');
 
+Route::post('/home/order-status/employee',
+    [OrderController::class, 'order_delete'])
+    ->name('order.delete');
+
 Route::get('/managements/menus',
     [OrderController::class, 'menu_management_view'])
     ->name('mgmt.menus');

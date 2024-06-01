@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -82,7 +83,19 @@ class OrderController extends Controller
         $menu -> menu_name = $request -> newMenu; 
         $menu -> price = $request -> newMenuPrice;
         $menu -> save();
-        return redirect('managements/menus');
+        return redirect(route('mgmt.menus'));
     }
 
+    public function order_delete(Request $request) :RedirectResponse
+    {
+        $orderId = $request -> key;
+        $orders = Order::whereDate('order_number', $orderId)->get();
+        
+        foreach($orders as $order){
+                $order->menu->detach();
+                $order ->delete();
+            };
+            
+        return redirect(route('order_status.employee'));
+    }                                                                               
 }
